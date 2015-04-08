@@ -8,14 +8,14 @@
                             <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="./book-shop/account/login">Sign In</a></div>
                         </div>  
                         <div class="panel-body" >
-                          {{ flashSession.output() }}
-                        {%if errors is empty === false%}
+                          <?php echo $this->flashSession->output(); ?>
+                        <?php if (empty($errors) === false) { ?>
                             
-                            {% for message in errors %}
-                                {{ flashSession.warning(message) }}
-                                {{ flashSession.output() }}
-                            {% endfor%}
-                            {%endif%}
+                            <?php foreach ($errors as $message) { ?>
+                                <?php echo $this->flashSession->warning($message); ?>
+                                <?php echo $this->flashSession->output(); ?>
+                            <?php } ?>
+                            <?php } ?>
                             <form id="signupform" class="form-horizontal" method='post' action='./book-shop/account/registration'>
                                 
                                 <div id="signupalert" style="display:none" class="alert alert-danger">
@@ -27,14 +27,14 @@
                                   <div class="form-group">
                                     <label for="firstname" class="col-md-3 control-label">Name</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="name" placeholder="Name" value="{{ nameField }}">
+                                        <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $nameField; ?>">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="email" class="col-md-3 control-label">Email</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="email" placeholder="Email Address" value="{{ emailField }}" >
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address" value="<?php echo $emailField; ?>" >
                                     </div>
                                 </div>                                    
                                 

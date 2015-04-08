@@ -24,7 +24,7 @@ class ControllerBase extends Controller
         if ( $this->session->has("user_id") ) {
             $this->sessionValue = $this->session->get("user_id");
             // $total = Shoppingcart::count("Users_idUser = $this->sessionValue");
-            $total = Shoppingcart::sum(array(
+            $total = ShoppingCart::sum(array(
                 "column" => "Count",
                 "conditions" => "Users_idUser = $this->sessionValue"
             ));

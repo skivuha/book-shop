@@ -12,7 +12,7 @@ $(document).ready( function() {
                 $(span).html(' ' + count + ' ');
 
                 $.ajax({
-                    url: '/book-shop/order/changeCount/' + id + '/plus',
+                    url: './book-shop/order/changeCount/' + id + '/plus',
                     method: 'GET'
                 }).then(function(data) {
                     //console.log(data);
@@ -28,7 +28,7 @@ $(document).ready( function() {
                     - 1;
                 $(span).html(' ' + count + ' ');
                 $.ajax({
-                    url: '/book-shop/order/changeCount/' + id + '/minus',
+                    url: './book-shop/order/changeCount/' + id + '/minus',
                     method: 'GET'
                 }).then(function(data) {
                     //console.log(data);
@@ -49,7 +49,7 @@ $(document).ready( function() {
         changeValue();
 
         $.ajax({
-            url: '/book-shop/order/removeCart/' + id,
+            url: './book-shop/order/removeCart/' + id,
             method: 'GET'
         }).then(function(data) {
             //console.log(data);
@@ -73,7 +73,7 @@ $(document).ready( function() {
             totalCount += parseInt($(this).html());
         })
 
-        $(".cart a").html('(' + totalCount + ')' + 'item(-s) - $' + totalPrice.toFixed(2) );
+        $(".cart a").html('(' + totalCount + ')' + ' item(-s) - $' + totalPrice.toFixed(2) );
     }
 
 

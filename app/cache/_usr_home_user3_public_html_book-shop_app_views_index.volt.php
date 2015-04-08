@@ -17,23 +17,23 @@
 		<title>Book-shop</title>
 	</head>
 	<body>
-    {{ stylesheet_link("css/index/header.css") }}
+    <?php echo $this->tag->stylesheetLink('css/index/header.css'); ?>
     
     <nav class="navbar navbar-default navbar-fixed-top">
 <div id='main-header-container' >
     <div class="img-container" class='cp-clear'>
         <div class='img-books'>
        
-         {{ link_to ('', image("img/header/books.jpg", "alt": "Picture was removed", "title": "Home" ))}} 
+         <?php echo $this->tag->linkTo(array('', $this->tag->image(array('img/header/books.jpg', 'alt' => 'Picture was removed', 'title' => 'Home')))); ?> 
           </div>
           <div class='cart'>
                 <div>
                     <p>Welcome to our online store!</p>
-                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>({{ total }}) item(-s) - ${{ summary }} </a></p>
+                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>(<?php echo $total; ?>) item(-s) - $<?php echo $summary; ?> </a></p>
                  </div>
             </div>
          <div class='logo'>
-            {{ link_to ('', image("img/header/name.png", "alt": "Picture was removed", "title": "Home" ))}} 
+            <?php echo $this->tag->linkTo(array('', $this->tag->image(array('img/header/name.png', 'alt' => 'Picture was removed', 'title' => 'Home')))); ?> 
          </div>     
          
     </div>
@@ -41,11 +41,11 @@
         <div class='ul-s'>
             <ul>
                  <span class='glyphicon glyphicon-home'><span><li><a href='./book-shop/'> Home </a></li>
-                 {% if sessionOn is empty  %}
+                 <?php if (empty($sessionOn)) { ?>
                    <span class='glyphicon glyphicon-log-in'><span><li><a href='./book-shop/account/login'> Sign in</a></li>
-                {% else %}
-                    <span class='glyphicon glyphicon-log-out'><span><li> Hello, {{ nameUser }} [<a href='./book-shop/account/logout'>Sign out</a>]</li>
-                {% endif %}
+                <?php } else { ?>
+                    <span class='glyphicon glyphicon-log-out'><span><li> Hello, <?php echo $nameUser; ?> [<a href='./book-shop/account/logout'>Sign out</a>]</li>
+                <?php } ?>
 
             </ul>
             </div>
@@ -55,6 +55,6 @@
 </div>
 </nav>
 
-		{{ content() }}
+		<?php echo $this->getContent(); ?>
 	</body>
 </html>

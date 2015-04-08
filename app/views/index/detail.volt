@@ -26,11 +26,11 @@
    <a href='../../' ><button class='btn btn-primary'>Back</button></a>
   {% else %} 
       {% if backToLanguage is empty != true %}
-            <a href={{ '/book-shop/index/languagesList/idLanguage='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
+            <a href={{ './book-shop/index/languagesList/idLanguage='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
       {% elseif backToSearch is empty != true %}     
-            <a href={{ '/book-shop/index/search/?page='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
+            <a href={{ './book-shop/index/search/?page='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
             {% else %}
-            <a href={{ '/book-shop/index/authorsList/idAuthor='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
+            <a href={{ './book-shop/index/authorsList/idAuthor='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
       {% endif %}
    
   {% endif %}

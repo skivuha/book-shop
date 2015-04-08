@@ -7,14 +7,14 @@
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >
-                     {{ flashSession.output() }}
-                     {%if errors is empty === false%}
+                     <?php echo $this->flashSession->output(); ?>
+                     <?php if (empty($errors) === false) { ?>
                             
-                            {% for message in errors %}
-                                {{ flashSession.warning(message) }}
-                                {{ flashSession.output() }}
-                            {% endfor%}
-                            {%endif%}
+                            <?php foreach ($errors as $message) { ?>
+                                <?php echo $this->flashSession->warning($message); ?>
+                                <?php echo $this->flashSession->output(); ?>
+                            <?php } ?>
+                            <?php } ?>
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
@@ -22,7 +22,7 @@
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input type="text" class="form-control" name="name" placeholder="username"  value="{{ nameField }}" >                                        
+                                        <input type="text" class="form-control" name="name" placeholder="username"  value="<?php echo $nameField; ?>" >                                        
                                     </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">

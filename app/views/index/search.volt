@@ -56,8 +56,8 @@
     {% endfor %}
     </div>
                 <div class="col-md-3">
-                 <a href="/book-shop"><span class='glyphicon glyphicon-fast-backward'></span></a>
-                <a href="?page={{ pages.before}}"><span class='glyphicon glyphicon-step-backward'></a>
+                 <a href="./book-shop"><span class='glyphicon glyphicon-fast-backward'></span></a>
+                <a href="./book-shop/index/search/?page={{ pages.before}}"><span class='glyphicon glyphicon-step-backward'></a>
                 </div>
                 <div class="col-md-6">
                     <ul class='pages'>
@@ -70,14 +70,14 @@
                                 }
                                 else
                                 {
-                                    echo "<li> <a href='/book-shop/index/search/?page=$i'>$i</a></li>";
+                                    echo "<li> <a href='./book-shop/index/search/?page=$i'>$i</a></li>";
                                 }   
                              }?>
                     </ul>
                  </div>
                   <div id='last-pages' class="col-md-3">
-                    <a href="?page={{ pages.next}}"><span class='glyphicon glyphicon-step-forward'></span></a>
-                    <a href="?page={{ pages.last}}"><span class='glyphicon glyphicon-fast-forward'></span></a>
+                    <a href="./book-shop/index/search/?page={{ pages.next}}"><span class='glyphicon glyphicon-step-forward'></span></a>
+                    <a href="./book-shop/index/search/?page={{ pages.last}}"><span class='glyphicon glyphicon-fast-forward'></span></a>
                  </div>
         </div>
      </div> 
