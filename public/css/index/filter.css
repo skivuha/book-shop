@@ -1,0 +1,77 @@
+.filter-header {
+    background-color: #fcf8e3;
+    margin: 0 auto;
+    height: 40px;
+    padding: 5px;
+    margin-top: 200px;
+}
+
+#container {
+    margin: 0 auto;
+    border: 2px solid #d9d9d9;
+}
+
+.filter-language {
+    margin: 0 auto;
+    width: 180px;
+}
+.filter {
+    margin: 0 auto;
+    width: 250px;
+}
+.list {
+    margin: 0 auto;
+    width: 150px;
+}
+
+#book-div:hover{
+    border: 2px solid #0055aa;
+
+}
+#book-div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px solid #e3e3e3;
+
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 10px;
+}
+
+.img-book {
+
+    margin: 0 auto;
+    width: 160px;
+}
+.description {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.price {
+    text-align: center;
+}
+
+.div-book:hover {
+    border: 2px solid #0081c2;
+}
+
+.form-div{
+    margin: 0 auto;
+    width: 95px;
+}
+
+.name-filter{
+    font-family: 'Dosis', sans-serif;
+    font-size: 14pt;
+}
+
+.link-back{
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 18pt;
+}

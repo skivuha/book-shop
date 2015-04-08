@@ -1,0 +1,102 @@
+#main-header-container{
+
+    margin: 0 auto;
+    height: 200px;
+
+
+}
+
+.navbar-fixed-top{
+    margin: 0 auto;
+
+}
+
+.container {
+    margin-top: 200px;
+}
+
+
+.cp-clear {
+    zoom:1;
+    display: block;
+}
+
+.cp-clear:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+.img-container {
+    height: 150px;
+
+    margin: 0 auto;
+
+}
+.img-books {
+    height: 145px;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
+
+.cart {
+    float:right;
+    font-family: 'Lobster', cursive;
+    font-size: 14pt;
+    height: 130px;
+
+    position:relative;
+}
+
+.cart div {
+    position:absolute;
+    right:0;
+    bottom:0;
+}
+
+.logo
+{
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 375px;
+    height: 130px;
+
+}
+
+.link-container {
+    height: 50px;
+    border-bottom: 2px solid #d9d9d9;
+    border-top: 2px solid #d9d9d9;
+}
+
+.ul-s {
+    float: right;
+    margin-top: 7px;
+}
+
+.ul-s .glyphicon {
+    font-size: 20px;
+}
+
+#main-header-container ul li {
+    display: inline;
+    padding-right: 20px;
+
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 18pt;
+
+
+}
+
+#main-header-container ul li a{
+    text-decoration: none;
+    padding-bottom: 10px;
+
+
+}
+
+#main-header-container ul li a:hover{
+    border-bottom: 2px solid blue;
+}

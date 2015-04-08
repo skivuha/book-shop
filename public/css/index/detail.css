@@ -1,0 +1,25 @@
+.container{
+    margin: 0 auto;
+    border: 2px solid #d9d9d9;
+    border-top: none;
+    margin-top: 200px;
+
+}
+
+input[type=submit] {
+
+    float: right;
+}
+
+button {
+    float: left;
+}
+
+.footer{
+    width: 200px;
+    margin: 35px auto;
+
+    overflow:hidden;
+
+}
+

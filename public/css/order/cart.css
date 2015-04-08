@@ -1,0 +1,9 @@
+.container-table{
+    width: 960px;
+    margin: 25px auto;
+    margin-top: 220px;
+}
+
+.glyphicon{
+    cursor: pointer;
+}
