@@ -2,6 +2,7 @@ $(document).ready(function() {
     var containerWidth = $( window ).width();
     var widthMainContainer = containerWidth * 0.80;
     var withImgContainer = widthMainContainer * 0.25;
+
     $(".navbar-fixed-top").css("width", widthMainContainer + "px");
     $(".img-container").css("width", widthMainContainer + "px");
     $(".img-books").css("width", withImgContainer + "px");

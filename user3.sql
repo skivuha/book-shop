@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 08 2015 г., 10:50
+-- Время создания: Апр 09 2015 г., 11:16
 -- Версия сервера: 5.6.21
 -- Версия PHP: 5.6.3
 
@@ -195,14 +195,18 @@ CREATE TABLE IF NOT EXISTS `discount` (
 `idDiscount` int(11) NOT NULL,
   `Value` float DEFAULT NULL,
   `Name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `discount`
 --
 
 INSERT INTO `discount` (`idDiscount`, `Value`, `Name`) VALUES
-(1, 25, 'sadsadd');
+(2, 5, 'First level'),
+(3, 7, 'Second level'),
+(4, 9, 'Third level'),
+(5, 11, 'Fourth level'),
+(6, 13, 'Five level');
 
 -- --------------------------------------------------------
 
@@ -216,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `itemsorder` (
   `Price` float DEFAULT NULL,
   `Books_idBook` int(11) NOT NULL,
   `Orders_idOrders` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -248,12 +252,12 @@ INSERT INTO `language` (`idLanguage`, `Name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `orders` (
 `idOrders` int(11) NOT NULL,
-  `Date` date DEFAULT NULL,
+  `Date` datetime DEFAULT CURRENT_TIMESTAMP,
   `Summary` float DEFAULT NULL,
   `Users_idUser` int(11) NOT NULL,
   `Status_idStatus` int(11) NOT NULL,
   `Payment_idPayment` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -264,7 +268,19 @@ CREATE TABLE IF NOT EXISTS `orders` (
 CREATE TABLE IF NOT EXISTS `payment` (
 `idPayment` int(11) NOT NULL,
   `Name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `payment`
+--
+
+INSERT INTO `payment` (`idPayment`, `Name`) VALUES
+(1, 'Google Wallet'),
+(2, 'Amazon Payments'),
+(3, 'PayPal'),
+(4, 'WebMoney'),
+(5, 'LiqPay'),
+(6, 'Cash on delivery');
 
 -- --------------------------------------------------------
 
@@ -278,15 +294,7 @@ CREATE TABLE IF NOT EXISTS `shoppingcart` (
   `Price` float DEFAULT NULL,
   `Users_idUser` int(11) NOT NULL,
   `Books_idBook` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `shoppingcart`
---
-
-INSERT INTO `shoppingcart` (`idShoppingCart`, `Count`, `Price`, `Users_idUser`, `Books_idBook`) VALUES
-(13, 12, 388.08, 16, 3),
-(14, 15, 613.2, 16, 6);
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -297,7 +305,18 @@ INSERT INTO `shoppingcart` (`idShoppingCart`, `Count`, `Price`, `Users_idUser`, 
 CREATE TABLE IF NOT EXISTS `status` (
 `idStatus` int(11) NOT NULL,
   `Name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `status`
+--
+
+INSERT INTO `status` (`idStatus`, `Name`) VALUES
+(1, 'Issued'),
+(2, 'Delivering'),
+(3, 'Delivered'),
+(4, 'Paid'),
+(5, 'Finished');
 
 -- --------------------------------------------------------
 
@@ -311,16 +330,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Email` varchar(50) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `Discount_idDiscount` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`idUser`, `Login`, `Email`, `Password`, `Discount_idDiscount`) VALUES
-(16, 'my name is Dima', 'sad@asd.sd', '$2a$08$Td7wYYvwnnbnH.fiSXwxkOEyIuV/qUSL98OX8e.VvClSwuJUGV/Jq', NULL),
+(16, 'my name is Dima', 'sad@asd.sd', '$2a$08$Td7wYYvwnnbnH.fiSXwxkOEyIuV/qUSL98OX8e.VvClSwuJUGV/Jq', 2),
 (17, 'new Name', 'd.shuliakov@gmail.com', '$2a$08$738g2EPHPUwZmON4wShpMeXV4Qf4Tfuo9u8tVpgvMUP53NtrdMZwS', NULL),
-(18, 'New names', 'sds@mail.ru', '$2a$08$BIjk2t8GtpM6uSHcKpIW0eJkz/dfSPfqQa49vbc3VJssGwnzG2IDi', NULL);
+(18, 'New names', 'sds@mail.ru', '$2a$08$BIjk2t8GtpM6uSHcKpIW0eJkz/dfSPfqQa49vbc3VJssGwnzG2IDi', NULL),
+(19, 'dsadsadsadsadsadsdsad', 'sad@asd.ryu', '$2a$08$jKTkFYJa56jeEn5oULDUWe0Lg/n/YNNPEdcJuuTXN/GNADf9l3WYi', NULL),
+(20, 'wednesday', 'dsadsadasd@mail.ru', '$2a$08$QWomgwwhFeR/b9TDDKPt7eQTTFMw47hienF6ou.c4RWVW.EWYP/02', NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -416,12 +437,12 @@ MODIFY `idBook` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 -- AUTO_INCREMENT для таблицы `discount`
 --
 ALTER TABLE `discount`
-MODIFY `idDiscount` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `idDiscount` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `itemsorder`
 --
 ALTER TABLE `itemsorder`
-MODIFY `idItemsOrder` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `idItemsOrder` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT для таблицы `language`
 --
@@ -431,27 +452,27 @@ MODIFY `idLanguage` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-MODIFY `idOrders` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `idOrders` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT для таблицы `payment`
 --
 ALTER TABLE `payment`
-MODIFY `idPayment` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `idPayment` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `shoppingcart`
 --
 ALTER TABLE `shoppingcart`
-MODIFY `idShoppingCart` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `idShoppingCart` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблицы `status`
 --
 ALTER TABLE `status`
-MODIFY `idStatus` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `idStatus` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
