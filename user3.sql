@@ -252,7 +252,7 @@ INSERT INTO `language` (`idLanguage`, `Name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `orders` (
 `idOrders` int(11) NOT NULL,
-  `Date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `Date` timestamp DEFAULT CURRENT_TIMESTAMP,
   `Summary` float DEFAULT NULL,
   `Users_idUser` int(11) NOT NULL,
   `Status_idStatus` int(11) NOT NULL,
