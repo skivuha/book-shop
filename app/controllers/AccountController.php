@@ -146,7 +146,7 @@ class AccountController extends ControllerBase
                                 ));
                 $arrayItemsOrder[$orderId] = $itemsForOrder;
             }
-
+            $this->view_setVar("orders", $orders);
             $this->view->setVar("itemsOrder", $arrayItemsOrder);
         }
  
