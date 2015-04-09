@@ -1,4 +1,4 @@
-{{ stylesheet_link("css/order/grats.css") }}
+<?php echo $this->tag->stylesheetLink('css/order/grats.css'); ?>
 
 <div id='body-container'>
        <div class="grats-div">
@@ -9,4 +9,4 @@
         </div> 
 </div>
 
-{{ javascript_include("js/order/grats.js") }}
+<?php echo $this->tag->javascriptInclude('js/order/grats.js'); ?>

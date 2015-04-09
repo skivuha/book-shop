@@ -127,6 +127,31 @@ class AccountController extends ControllerBase
 
     }
 
+    public function OrderListAction()
+    {
+        if ($this->session->has("user_id"))
+        {
+            $userId = parent::getValue();
+            $orders = Orders::find(array(
+                    'conditions' => 'Users_idUser = ?0',
+                    'bind' => array($userId)
+                    )); 
+            $arrayItemsOrder = array(); 
+            foreach ($orders as $order)
+            {
+                $orderId = $order->getIdOrders();
+                $itemsForOrder = ItemsOrder::find(array(
+                                'conditions' => 'Orders_idOrders = ?0',
+                                'bind' => array($orderId)
+                                ));
+                $arrayItemsOrder[$orderId] = $itemsForOrder;
+            }
+
+            $this->view->setVar("itemsOrder", $arrayItemsOrder);
+        }
+ 
+    }
+
 
 
 }

@@ -43,7 +43,7 @@
                        </div>
                        <div class='form-div'>
                            <?php echo $this->tag->form(array('order/add/' . $pageCurrent->getIdbook(), 'method' => 'post')); ?>
-                                <?php echo $this->tag->submitButton(array('Add to cart', '')); ?>
+                               <span class='glyphicon glyphicon-shopping-cart'>  </span> <?php echo $this->tag->submitButton(array('Add to cart', '')); ?> 
                            <?php echo $this->tag->endForm(); ?>
                        </div>
                      </div>
