@@ -136,18 +136,31 @@ class AccountController extends ControllerBase
                     'conditions' => 'Users_idUser = ?0',
                     'bind' => array($userId)
                     )); 
-            $arrayItemsOrder = array(); 
+            /* $orders = $this->modelsManager->createBuilder()
+                ->from('Orders')
+                ->addFrom('Status')
+                ->where('Orders.Status_idStatus = Status.idStatus')
+                ->andWhere("Orders.Users_idUser = $userId")
+                ->getQuery()
+                ->execute();*/
+
+            $arrayItemsOrder = array();
+            $arrayStatus = array(); 
             foreach ($orders as $order)
             {
                 $orderId = $order->getIdOrders();
+                $statusId = $order->getStatusIdstatus();
                 $itemsForOrder = ItemsOrder::find(array(
                                 'conditions' => 'Orders_idOrders = ?0',
                                 'bind' => array($orderId)
                                 ));
+                $status = Status::findFirstByIdStatus($statusId);
                 $arrayItemsOrder[$orderId] = $itemsForOrder;
+                $arrayStatus[$orderId] = $status;
             }
-            $this->view_setVar("orders", $orders);
+            $this->view->setVar("orders", $orders);
             $this->view->setVar("itemsOrder", $arrayItemsOrder);
+            $this->view->setVar("status", $arrayStatus);
         }
  
     }
