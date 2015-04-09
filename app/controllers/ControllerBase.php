@@ -5,10 +5,17 @@ use Phalcon\Mvc\Controller;
 class ControllerBase extends Controller
 {
     private $sessionValue;
+    private $totalSum;
+
 
     protected function getValue()
     {
         return $this->sessionValue;
+    }
+
+    protected function getTotalSum()
+    {
+        return round($this->totalSum, 2);
     }
 
     protected function initialize()
@@ -33,6 +40,7 @@ class ControllerBase extends Controller
                 "column" => "Price",
                 "conditions" => "Users_idUser = $this->sessionValue"
             ));
+            $this->totalSum = $summary;
             if ($total)
             {
                 $this->view->setVar('total', $total);

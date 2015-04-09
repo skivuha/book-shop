@@ -5,7 +5,7 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="panel-title">Sign Up</div>
-                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/book-shop/account/login">Sign In</a></div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="./book-shop/account/login">Sign In</a></div>
                         </div>  
                         <div class="panel-body" >
                           <?php echo $this->flashSession->output(); ?>
@@ -16,7 +16,7 @@
                                 <?php echo $this->flashSession->output(); ?>
                             <?php } ?>
                             <?php } ?>
-                            <form id="signupform" class="form-horizontal" method='post' action='/book-shop/account/registration'>
+                            <form id="signupform" class="form-horizontal" method='post' action='./book-shop/account/registration'>
                                 
                                 <div id="signupalert" style="display:none" class="alert alert-danger">
                                     <p>Error:</p>

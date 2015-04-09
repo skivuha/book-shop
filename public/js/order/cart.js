@@ -1,4 +1,9 @@
 $(document).ready( function() {
+
+    var containerWidth = $( window ).width();
+    var widthMainContainer = containerWidth * 0.80;
+    $(".container-body").css("width", widthMainContainer + "px");
+
     $(".glyphicon-plus, .glyphicon-minus").on("click", function() {
         var numberValue = $(this).parent().parent().find("span").text(); // число
         var span = $(this).parent().parent().find(".number"); //span
@@ -43,7 +48,7 @@ $(document).ready( function() {
     })
 
 
-    $(".glyphicon-remove").on("click", function() {
+    $(".glyphicon-trash").on("click", function() {
         $(this).parent().parent().remove();
         var id =  $(this).attr("name");
         changeValue();
@@ -66,6 +71,9 @@ $(document).ready( function() {
         })
 
         $("#amount").text(totalPrice.toFixed(2));
+        if ( 0 == totalPrice ){
+            $("input[type=submit]").fadeOut();
+        }
         var count = $(".number");
         var totalCount = 0;
 

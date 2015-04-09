@@ -19,7 +19,7 @@
         {% endif %}
       {% endfor %}
       </p>
-	<h4 align='center'>{{  book.getPrice() }} $</h4>
+	<h4 align='center'>${{  book.getPrice() }} </h4>
 	<p align='justify'>{{  book.getDescription() }}</p>
   <div class='footer'>
   {% if secondParam is empty%}
@@ -28,9 +28,9 @@
       {% if backToLanguage is empty != true %}
             <a href={{ './book-shop/index/languagesList/idLanguage='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
       {% elseif backToSearch is empty != true %}     
-            <a href={{ './book-shop/index/search/?page='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
+              <a href={{ './book-shop/index/search/?page='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
             {% else %}
-            <a href={{ './book-shop/index/authorsList/idAuthor='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
+               <a href={{ './book-shop/index/authorsList/idAuthor='~secondParam }} ><button class='btn btn-primary'>Back</button></a>
       {% endif %}
    
   {% endif %}

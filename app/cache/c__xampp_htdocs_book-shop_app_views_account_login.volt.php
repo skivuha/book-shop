@@ -18,7 +18,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form id="loginform" class="form-horizontal" method='post' action='/book-shop/account/login'>
+                        <form id="loginform" class="form-horizontal" method='post' action='./book-shop/account/login'>
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -56,7 +56,7 @@
                                     <div class="col-md-12 control">
                                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                             Don't have an account! 
-                                        <a href="/book-shop/account/registration">
+                                        <a href="./book-shop/account/registration">
                                             Sign Up Here
                                         </a>
                                         </div>

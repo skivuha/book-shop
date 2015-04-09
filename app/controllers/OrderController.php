@@ -135,19 +135,18 @@ class OrderController extends ControllerBase
                                 'bind' => array($userId,$idBook)
                     ));
  
-                    /*if ( $shopCart == false ) 
+                    if ( $shopCard == false )
                     {
                        $this->response->redirect('acount/card');
                     }
                     else
-                    {*/
+                    {
                         $count = $shopCard->getCount();
                         if ( substr_count($action, 'plus') > 0 )
                         {
                              $price = $shopCard->getPrice();
                              $shopCard->SetPrice($price + $price / $count);
                              $shopCard->setCount($count + 1);
-                             $count = $shopCard->getCount();
                               
                         }
                         else
@@ -157,18 +156,116 @@ class OrderController extends ControllerBase
                                 $price = $shopCard->getPrice();
                                 $shopCard->SetPrice($price - $price / $count);
                                 $shopCard->setCount($count - 1);
-                                $count = $shopCard->getCount();
                              }
                         }
                         
-                        if ( $shopCard->save() )
+                        if ( $shopCard->save() == true )
                         {
                             $this->response->redirect('');
                         }
-                   // }
+                    }
         
                 }
             }
+        }
+    }
+
+
+    public function GetOrderAction()
+    {
+        if ( $this->session->has("user_id") && $this->request->isPost())
+        {
+
+                $userId = parent::getValue();
+                $totalSum = parent::getTotalSum();
+                $this->view->setVar('totalSum', $totalSum);
+                $user = Users::findFirst(array(
+                    'conditions' => "idUser =  $userId"
+                ));
+
+                if ( !$totalSum )
+                {
+                    return $this->response->redirect('order/cart');
+                }
+
+                if ( $user )
+                {
+                    $payment = Payment::Find();
+                    $this->view->setVar('payment', $payment);
+                    $discount = Discount::findFirstByIdDiscount($user->getDiscountIdDiscount());
+                    if ( $discount )
+                    {
+                        $discountValue = $discount->getValue();
+                        $this->view->setVar('discountValue', $discountValue);
+                        $finalAmount = $totalSum - $totalSum * $discountValue / 100;
+                        $finalAmount = round($finalAmount, 2);
+                        $this->view->setVar('finalAmount', $finalAmount);
+
+
+                    }
+
+                    else
+                    {
+
+                    }
+                }
+        }
+        else
+        {
+            return $this->response->redirect('index/index');
+        }
+    }
+
+    public function GratsAction()
+    {
+        if ( $this->session->has("user_id") && $this->request->isPost() )
+        {
+            $userId = parent::getValue();
+            $user = Users::findFirst(array(
+                'conditions' => "idUser =  $userId"
+            ));
+
+            $paymentId = $this->filter->sanitize($this->request->getPost('group1'), "int");
+            $discount = Discount::findFirstByIdDiscount($user->getDiscountIdDiscount());
+            if ( $discount )
+            {
+                $discountValue = $discount->getValue();
+                $finalAmount = parent::getTotalSum() - parent::getTotalSum() * $discountValue / 100;
+                $finalAmount = round($finalAmount, 2);
+            }
+            else
+            {
+                $finalAmount = parent::getTotalSum();
+            }
+            $order = new Orders();
+            $order->setDate( new \Phalcon\Db\RawValue('default'));
+            $order->setSummary($finalAmount);
+            $order->setUsersIduser($userId);
+            $order->setStatusIdstatus(1);
+            $order->setPaymentIdpayment($paymentId);
+            $order->save();
+            $lastInsertId = $order->getIdorders();
+
+            $shopCard = ShoppingCart::find(array(
+                'conditions' => 'Users_idUser = ?0',
+                'bind' => array($userId)
+            ));
+
+            foreach ($shopCard as $item)
+            {
+                $itemOrder= new ItemsOrder();
+                $itemOrder->setCount($item->getCount());
+                $itemOrder->setPrice($item->getPrice());
+                $itemOrder->setBooksIdbook($item->getBooksIdBook());
+                $itemOrder->setOrdersIdOrders($lastInsertId);
+                $itemOrder->save();
+                $item->delete();
+            }
+
+        }
+        else
+        {
+            return $this->response->redirect('index/index');
         }
     }
 }

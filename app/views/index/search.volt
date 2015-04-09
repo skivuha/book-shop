@@ -43,7 +43,7 @@
                        </div>
                        <div class='form-div'>
                            {{ form('order/add/'~pageCurrent.getIdbook(), 'method': 'post') }}
-                                {{ submit_button('Add to cart', '') }}
+                               <span class='glyphicon glyphicon-shopping-cart'>  </span> {{ submit_button('Add to cart', '') }} 
                            {{ end_form() }}
                        </div>
                      </div>

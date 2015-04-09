@@ -19,18 +19,18 @@
         <?php } ?>
       <?php $v39743880331incr++; } ?>
       </p>
-	<h4 align='center'><?php echo $book->getPrice(); ?> $</h4>
+	<h4 align='center'>$<?php echo $book->getPrice(); ?> </h4>
 	<p align='justify'><?php echo $book->getDescription(); ?></p>
   <div class='footer'>
   <?php if (empty($secondParam)) { ?>
    <a href='../../' ><button class='btn btn-primary'>Back</button></a>
   <?php } else { ?> 
       <?php if (empty($backToLanguage) != true) { ?>
-            <a href=<?php echo '/book-shop/index/languagesList/idLanguage=' . $secondParam; ?> ><button class='btn btn-primary'>Back</button></a>
+            <a href=<?php echo './book-shop/index/languagesList/idLanguage=' . $secondParam; ?> ><button class='btn btn-primary'>Back</button></a>
       <?php } elseif (empty($backToSearch) != true) { ?>     
-            <a href=<?php echo '/book-shop/index/search/?page=' . $secondParam; ?> ><button class='btn btn-primary'>Back</button></a>
+              <a href=<?php echo './book-shop/index/search/?page=' . $secondParam; ?> ><button class='btn btn-primary'>Back</button></a>
             <?php } else { ?>
-            <a href=<?php echo '/book-shop/index/authorsList/idAuthor=' . $secondParam; ?> ><button class='btn btn-primary'>Back</button></a>
+               <a href=<?php echo './book-shop/index/authorsList/idAuthor=' . $secondParam; ?> ><button class='btn btn-primary'>Back</button></a>
       <?php } ?>
    
   <?php } ?>
