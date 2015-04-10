@@ -16,15 +16,27 @@
          <table border='1'>
         {% for order in orders %}
             <tr>  
-                <td>{{ loop.index }} </td><td>{{ order.getDate() }}</td><td>{{ order.getSummary() }}</td><td>{{ status[order.getIdOrders()].getdsdame() }}</td>
+                <td>{{ loop.index }} </td><td>{{ order.getDate() }}</td><td>{{ order.getSummary() }}</td><td>{{ status[order.getIdOrders()] }}</td>
             </tr>
-        {% endfor %}
         </table> 
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
+            {% for item in itemsOrder[order.getIdOrders()]%}
+                {% if loop.first %}
+                    <table border='1'>
+                        <tr>
+                            <th>N/n</th><th>Book</th><th>Count</th><th>Price</th>
+                        </tr>        
+                {% endif %}
+                    <tr>
+                        <td>{{ loop.index }}</td><td>{{ item.getBooksIdBook() }}</td><td>{{ item.getCount() }}</td><td>{{ item.getPrice() }}</td>
+                    </tr>
+            {% endfor %} 
+            </table>
+        {% endfor %}
       </div>
     </div>
   </div>   
