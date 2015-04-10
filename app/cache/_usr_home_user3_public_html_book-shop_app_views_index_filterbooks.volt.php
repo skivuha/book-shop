@@ -7,14 +7,14 @@
                             <?php echo $this->tag->linkTo(array('', 'Back')); ?>
                     </div>
                     <div class='filter'>
-                         <p align='center' class='name-filter'>Author: <?php echo $name; ?></p>
+                         <p align='center' class='name-filter'><?php echo $t->_('author'); ?>: <?php echo $name; ?></p>
                     </div>
                     <?php } else { ?>
                      <div style='width:40px; float:left;'>
                             <?php echo $this->tag->linkTo(array('', 'Back')); ?>
                     </div>
                     <div class='filter'>
-                        <p align='center'  class='name-filter'>Language: <?php echo $name; ?></p>
+                        <p align='center'  class='name-filter'><?php echo $t->_('language'); ?>: <?php echo $name; ?></p>
                     </div>
                  <?php } ?>
             
