@@ -172,7 +172,7 @@ class AccountController extends ControllerBase
                                 ));
                 $status = Status::findFirstByIdStatus($statusId);
                 $arrayItemsOrder[$orderId] = $itemsForOrder;
-                $arrayStatus[$orderId] = $status;
+                $arrayStatus[$orderId] = $status->getName();
             }
             $this->view->setVar("orders", $orders);
             $this->view->setVar("itemsOrder", $arrayItemsOrder);
