@@ -6,7 +6,7 @@ class ControllerBase extends Controller
 {
     private $sessionValue;
     private $totalSum;
-
+    private $lang;
 
     protected function getValue()
     {
@@ -18,8 +18,55 @@ class ControllerBase extends Controller
         return round($this->totalSum, 2);
     }
 
-    protected function initialize()
+    private function _getTranslation()
     {
+        if ( $this->cookies->has("lang") )
+        {
+            $cookie = $this->cookies->get("lang");
+
+            $language = trim($cookie->getValue());
+
+        }
+        else
+        {
+            $language = strtolower($this->request->getBestLanguage());
+            if ( strpos($language, '-') != false)
+            {
+                $language = strtok($language, '-');
+            }
+        }
+
+        $this->lang = $language;
+        if ( $language === 'ru') {
+            require_once "languages/ru.php";
+        }
+        else {
+            require_once "languages/en.php";
+        }
+
+        // Возвращение объекта работы с переводом
+        return new \Phalcon\Translate\Adapter\NativeArray(array(
+            "content" => $messages
+        ));
+
+
+
+    }
+
+
+    protected function initialize()    {
+
+        $this->view->setVar("t", $this->_getTranslation());
+        if ( $this->lang === 'ru')
+        {
+            $this->view->setVar('selectedRu', 'selected');
+            $this->view->setVar('selectedEn', '');
+        }
+        else
+        {
+            $this->view->setVar('selectedEn', 'selected');
+            $this->view->setVar('selectedRu', '');
+        }
         $this->view->setVar('total', 0);
         $this->view->setVar('summary', 0.00);
         if ( $this->cookies->has('user_id') )

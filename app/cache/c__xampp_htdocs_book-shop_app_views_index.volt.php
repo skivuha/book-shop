@@ -28,43 +28,43 @@
 		<title>Book-shop</title>
 	</head>
 	<body>
-    {{ stylesheet_link("css/index/header.css") }}
+    <?php echo $this->tag->stylesheetLink('css/index/header.css'); ?>
     
     <nav class="navbar navbar-default navbar-fixed-top">
 <div id='main-header-container' >
     <div class="img-container" class='cp-clear'>
         <div class='img-books'>
        
-         {{ link_to ('', image("img/header/books.jpg", "alt": "Picture was removed", "title": "Home" ))}} 
+         <?php echo $this->tag->linkTo(array('', $this->tag->image(array('img/header/books.jpg', 'alt' => 'Picture was removed', 'title' => 'Home')))); ?> 
           </div>
           <div class='cart'>   
                 <div class='lang-div'>              
                     <select>
-                        <option value='en' {{ selectedEn }}>English</option>
-                        <option value='ru' {{ selectedRu }}>Русский</option>
+                        <option value='en' <?php echo $selectedEn; ?>>English</option>
+                        <option value='ru' <?php echo $selectedRu; ?>>Русский</option>
                     </select>
                 </div>
                 <div class='cart-link'>
-                    <p>{{ t._("welcome")}}</p>
-                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>({{ total }}) {{ t._("item")}} - ${{ summary }} </a></p>
+                    <p><?php echo $t->_('welcome'); ?></p>
+                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>(<?php echo $total; ?>) <?php echo $t->_('item'); ?> - $<?php echo $summary; ?> </a></p>
                  </div>
                  
             </div>
          <div class='logo'>
-            {{ link_to ('', image("img/header/name.png", "alt": "Picture was removed", "title": "Home" ))}} 
+            <?php echo $this->tag->linkTo(array('', $this->tag->image(array('img/header/name.png', 'alt' => 'Picture was removed', 'title' => 'Home')))); ?> 
          </div>     
          
     </div>
     <div class='link-container'>
         <div class='ul-s'>
             <ul>
-                 <span class='glyphicon glyphicon-home'><span><li><a href='./book-shop/'> {{ t._("home")}} </a></li>
-                 {% if sessionOn is empty  %}
-                   <span class='glyphicon glyphicon-log-in'><span><li><a href='./book-shop/account/login'> {{ t._("sign in")}} </a></li>
-                {% else %}
-                     <span class='glyphicon glyphicon-book'><span><li> <a href='./book-shop/account/orderlist'> {{ t._("history")}}</a></li>
-                    <span class='glyphicon glyphicon-log-out'><span><li> {{ t._("hello")}}, {{ nameUser }} [<a href='./book-shop/account/logout'> {{ t._("sign out")}}</a> ]</li>
-                {% endif %}
+                 <span class='glyphicon glyphicon-home'><span><li><a href='./book-shop/'> <?php echo $t->_('home'); ?> </a></li>
+                 <?php if (empty($sessionOn)) { ?>
+                   <span class='glyphicon glyphicon-log-in'><span><li><a href='./book-shop/account/login'> <?php echo $t->_('sign in'); ?> </a></li>
+                <?php } else { ?>
+                     <span class='glyphicon glyphicon-book'><span><li> <a href='./book-shop/account/orderlist'> <?php echo $t->_('history'); ?></a></li>
+                    <span class='glyphicon glyphicon-log-out'><span><li> <?php echo $t->_('hello'); ?>, <?php echo $nameUser; ?> [<a href='./book-shop/account/logout'> <?php echo $t->_('sign out'); ?></a> ]</li>
+                <?php } ?>
 
             </ul>
             </div>
@@ -74,6 +74,6 @@
 </div>
 </nav>
 
-		{{ content() }}
+		<?php echo $this->getContent(); ?>
 	</body>
 </html>

@@ -6,8 +6,8 @@
    
    <div class="col-md-2">
        
-            <p align='center' class='name-filters'>Filters</p>
-            <p id='lang-filter' class='it-filter'>Languages  <b class="caret"></b></p>
+            <p align='center' class='name-filters'>{{ t._("filters")}}</p>
+            <p id='lang-filter' class='it-filter'> {{ t._("lan")}}  <b class="caret"></b></p>
              <ul id='lang-filter-ul'>
                   {% for language in languages %}
                     <li> {{ link_to ('index/languagesList/idLanguage='~language.getIdLanguage(),  language.getName()) }}</li>
@@ -16,7 +16,7 @@
                       <h2>There're no one language! </h2>
                   {% endfor %}
             </ul>
-            <p id='author-filter' class='it-filter'>Authors <b class="caret"></b></p>
+            <p id='author-filter' class='it-filter'> {{ t._("authors")}} <b class="caret"></b></p>
              <ul id='author-filter-ul' style="display:none">
                 {% for author in authors %}
                     <li>  {{ link_to ('index/authorsList/idAuthor='~author.getIdAuthors(),  author.getName()) }} </li>

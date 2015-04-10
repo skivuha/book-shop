@@ -2,6 +2,22 @@
 
 class AccountController extends ControllerBase
 {
+    public function indexAction()
+    {
+        if ( $this->request->isAjax() && $this->request->isPost())
+        {
+            $backLink = $this->request->getPost("link");
+            $lang = $this->request->getPost("lang");
+            $this->cookies->set('lang', $lang);
+            $this->response->redirect('$backLink');
+        }
+        else
+        {
+            $this->response->redirect('');
+        }
+
+    }
+
     public function logOutAction()
     {
         $this->session->remove("user_id");

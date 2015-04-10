@@ -50,10 +50,15 @@
     position:relative;
 }
 
-.cart div {
+.cart-link {
     position:absolute;
-    left:0;
+    right: 5px;
     bottom:0;
+}
+.lang-div{
+    position:absolute;
+    right: 5px;
+    top:10px;
 }
 
 .logo

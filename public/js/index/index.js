@@ -26,5 +26,22 @@ $(document).ready(function() {
 
     })
 
+    $('select').on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        var link = window.location.href;
+        $.ajax({
+            url: "./book-shop/account/index",
+            type: "POST",
+            data: {"link": link, "lang": valueSelected},
+            success: function(data){
+                window.location = link;
+            }
+        });
+
+
+
+    });
+
 
 });

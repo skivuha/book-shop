@@ -2,10 +2,10 @@
 
 <div class='container-body'>
 <div class='container'>
-    <p> Your order amount is: {{ totalSum }} </p>
+    <p> Your order amount is: ${{ totalSum }} </p>
     {% if discountValue is empty == false%}
         <p>Your discount: {{ discountValue }} %</p>
-        <p>Your order amount after discount is: {{ finalAmount }}</p>
+        <p>Your order amount after discount is: ${{ finalAmount }}</p>
     {% endif %}
     <fieldset>
         <legend>Choose your payment system:</legend>

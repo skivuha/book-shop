@@ -91,10 +91,9 @@ class OrderController extends ControllerBase
 
     public function RemoveCartAction($idBook)
     {
-         if ($this->request->isGet())
+         if ($this->request->isGet() && $this->request->isAjax())
          {
-            if ($this->request->isAjax())
-            {
+
                 if ( $idBook )
                 {
                     $idBook = $this->filter->sanitize($idBook, "int");
@@ -115,58 +114,57 @@ class OrderController extends ControllerBase
                          }
                     }
                 }                
-            }
+
          }
     }
 
     public function ChangeCountAction($idBook, $action)
     {
-        if ($this->request->isGet())
+        if ($this->request->isGet() && $this->request->isAjax())
         {
-            if ($this->request->isAjax())
+
+            if ( $idBook  )
             {
-                if ( $idBook  )
-                {
-                    $idBook = $this->filter->sanitize($idBook, "int");
-                    $action = $this->filter->sanitize($action, "string");
-                    $userId = parent::getValue();
-                    $shopCard = ShoppingCart::findFirst(array(
-                                'conditions' => 'Users_idUser = ?0 AND Books_idBook = ?1',
-                                'bind' => array($userId,$idBook)
-                    ));
+                $idBook = $this->filter->sanitize($idBook, "int");
+                $action = $this->filter->sanitize($action, "string");
+                $userId = parent::getValue();
+                $shopCard = ShoppingCart::findFirst(array(
+                    'conditions' => 'Users_idUser = ?0 AND Books_idBook = ?1',
+                    'bind' => array($userId,$idBook)
+                ));
  
-                    if ( $shopCard == false )
+                if ( $shopCard == false )
+                {
+                    $this->response->redirect('acount/card');
+                }
+                else
+                {
+                    $count = $shopCard->getCount();
+                    if ( substr_count($action, 'plus') > 0 )
                     {
-                       $this->response->redirect('acount/card');
+                        $price = $shopCard->getPrice();
+                        $shopCard->SetPrice($price + $price / $count);
+                        $shopCard->setCount($count + 1);
+                              
                     }
                     else
                     {
-                        $count = $shopCard->getCount();
-                        if ( substr_count($action, 'plus') > 0 )
+                        if ( $count > 1 )
                         {
-                             $price = $shopCard->getPrice();
-                             $shopCard->SetPrice($price + $price / $count);
-                             $shopCard->setCount($count + 1);
-                              
-                        }
-                        else
-                        {
-                             if ( $count > 1 )
-                             {
-                                $price = $shopCard->getPrice();
-                                $shopCard->SetPrice($price - $price / $count);
-                                $shopCard->setCount($count - 1);
-                             }
-                        }
-                        
-                        if ( $shopCard->save() == true )
-                        {
-                            $this->response->redirect('');
+                            $price = $shopCard->getPrice();
+                            $shopCard->SetPrice($price - $price / $count);
+                            $shopCard->setCount($count - 1);
                         }
                     }
-        
+                        
+                    if ( $shopCard->save() == true )
+                    {
+                        $this->response->redirect('');
+                    }
                 }
+        
             }
+
         }
     }
 

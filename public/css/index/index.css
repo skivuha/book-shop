@@ -21,7 +21,9 @@
 
 }
 
-
+.lang-div{
+    font-family: 'Slabo 27px', serif;
+}
 #container .glyphicon{
     font-size: 12pt;
 }
