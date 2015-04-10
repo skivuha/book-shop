@@ -46,7 +46,7 @@
                 </div>
                 <div class='cart-link'>
                     <p>{{ t._("welcome")}}</p>
-                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>({{ total }}) {{ t._("item")}} - ${{ summary }} </a></p>
+                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> {{ t._("cart")  }} :<a href='./book-shop/order/cart'>({{ total }}) {{ t._("item")}} - ${{ summary }} </a></p>
                  </div>
                  
             </div>

@@ -8,7 +8,7 @@ class AccountController extends ControllerBase
         {
             $backLink = $this->request->getPost("link");
             $lang = $this->request->getPost("lang");
-            $this->cookies->set('lang', $lang);
+            $this->cookies->set('lang-user3', $lang);
             $this->response->redirect('$backLink');
         }
         else
@@ -22,7 +22,7 @@ class AccountController extends ControllerBase
     {
         $this->session->remove("user_id");
         $this->session->destroy();
-        $this->cookies->get('user_id')->delete();
+        $this->cookies->get('user_idUser3')->delete();
         $this->response->redirect('');
     }
 
@@ -58,7 +58,7 @@ class AccountController extends ControllerBase
                     $this->session->set("user_id", $idUser);
                     if ( $this->request->getPost('remember') )
                     {
-                        $this->cookies->set('user_id', $idUser);
+                        $this->cookies->set('user_idUser3', $idUser);
 
                     }
                     $this->response->redirect('');

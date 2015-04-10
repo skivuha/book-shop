@@ -2,10 +2,10 @@
 
 <div class='container-body'>
 <div class='container'>
-    <p> Your order amount is: <?php echo $totalSum; ?> </p>
+    <p> Your order amount is: $<?php echo $totalSum; ?> </p>
     <?php if (empty($discountValue) == false) { ?>
         <p>Your discount: <?php echo $discountValue; ?> %</p>
-        <p>Your order amount after discount is: <?php echo $finalAmount; ?></p>
+        <p>Your order amount after discount is: $<?php echo $finalAmount; ?></p>
     <?php } ?>
     <fieldset>
         <legend>Choose your payment system:</legend>

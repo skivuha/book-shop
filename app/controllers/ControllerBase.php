@@ -20,9 +20,9 @@ class ControllerBase extends Controller
 
     private function _getTranslation()
     {
-        if ( $this->cookies->has("lang") )
+        if ( $this->cookies->has("lang-user3") )
         {
-            $cookie = $this->cookies->get("lang");
+            $cookie = $this->cookies->get("lang-user3");
 
             $language = trim($cookie->getValue());
 
@@ -69,9 +69,9 @@ class ControllerBase extends Controller
         }
         $this->view->setVar('total', 0);
         $this->view->setVar('summary', 0.00);
-        if ( $this->cookies->has('user_id') )
+        if ( $this->cookies->has('user_idUser3') )
         {
-            $cookie = $this->cookies->get('user_id');
+            $cookie = $this->cookies->get('user_idUser3');
             $this->session->set('user_id', trim($cookie->getValue()));
         }
 

@@ -46,7 +46,7 @@
                 </div>
                 <div class='cart-link'>
                     <p><?php echo $t->_('welcome'); ?></p>
-                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>(<?php echo $total; ?>) <?php echo $t->_('item'); ?> - $<?php echo $summary; ?> </a></p>
+                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> <?php echo $t->_('cart'); ?> :<a href='./book-shop/order/cart'>(<?php echo $total; ?>) <?php echo $t->_('item'); ?> - $<?php echo $summary; ?> </a></p>
                  </div>
                  
             </div>
