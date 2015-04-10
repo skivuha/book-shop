@@ -7,14 +7,14 @@
                             {{ link_to ('',  'Back') }}
                     </div>
                     <div class='filter'>
-                         <p align='center' class='name-filter'>{{ t._("authors")}}: {{ name }}</p>
+                         <p align='center' class='name-filter'>{{ t._("author")}}: {{ name }}</p>
                     </div>
                     {% else %}
                      <div style='width:40px; float:left;'>
                             {{ link_to ('',  'Back') }}
                     </div>
                     <div class='filter'>
-                        <p align='center'  class='name-filter'>{{ t._("lan")}}: {{ name }}</p>
+                        <p align='center'  class='name-filter'>{{ t._("language")}}: {{ name }}</p>
                     </div>
                  {% endif %}
             
