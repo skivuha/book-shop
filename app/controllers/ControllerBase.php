@@ -38,10 +38,10 @@ class ControllerBase extends Controller
 
         $this->lang = $language;
         if ( $language === 'ru') {
-            require_once "languages/ru.php";
+            require_once dirname(__FILE__)."/../languages/ru.php";
         }
         else {
-            require_once "languages/en.php";
+            require_once dirname(__FILE__)."/../languages/en.php";
         }
 
         // Возвращение объекта работы с переводом

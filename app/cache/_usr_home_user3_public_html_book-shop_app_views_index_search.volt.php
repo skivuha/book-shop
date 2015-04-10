@@ -6,8 +6,8 @@
    
    <div class="col-md-2">
        
-            <p align='center' class='name-filters'>Filters</p>
-            <p id='lang-filter' class='it-filter'>Languages  <b class="caret"></b></p>
+            <p align='center' class='name-filters'><?php echo $t->_('filters'); ?></p>
+            <p id='lang-filter' class='it-filter'> <?php echo $t->_('lan'); ?>  <b class="caret"></b></p>
              <ul id='lang-filter-ul'>
                   <?php $v9566487051iterated = false; ?><?php foreach ($languages as $language) { ?><?php $v9566487051iterated = true; ?>
                     <li> <?php echo $this->tag->linkTo(array('index/languagesList/idLanguage=' . $language->getIdLanguage(), $language->getName())); ?></li>
@@ -16,7 +16,7 @@
                       <h2>There're no one language! </h2>
                   <?php } ?>
             </ul>
-            <p id='author-filter' class='it-filter'>Authors <b class="caret"></b></p>
+            <p id='author-filter' class='it-filter'> <?php echo $t->_('authors'); ?> <b class="caret"></b></p>
              <ul id='author-filter-ul' style="display:none">
                 <?php $v9566487051iterated = false; ?><?php foreach ($authors as $author) { ?><?php $v9566487051iterated = true; ?>
                     <li>  <?php echo $this->tag->linkTo(array('index/authorsList/idAuthor=' . $author->getIdAuthors(), $author->getName())); ?> </li>
