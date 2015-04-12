@@ -6,11 +6,16 @@ class ControllerBase extends Controller
 {
     private $sessionValue;
     private $totalSum;
+    private $summary;
     private $lang;
 
     protected function getValue()
     {
         return $this->sessionValue;
+    }
+    protected function getCount()
+    {
+        return $this->summary;
     }
 
     protected function getTotalSum()
@@ -88,13 +93,16 @@ class ControllerBase extends Controller
                 "conditions" => "Users_idUser = $this->sessionValue"
             ));
             $this->totalSum = $summary;
+            $this->summary = $total;
             if ($total)
             {
+
                 $this->view->setVar('total', $total);
             }
 
             if ($summary)
             {
+
                 $this->view->setVar('summary', round($summary, 2));
             }
 

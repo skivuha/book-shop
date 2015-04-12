@@ -160,16 +160,21 @@ class AccountController extends ControllerBase
                 ->getQuery()
                 ->execute();*/
 
+
+
             $arrayItemsOrder = array();
             $arrayStatus = array(); 
             foreach ($orders as $order)
             {
                 $orderId = $order->getIdOrders();
                 $statusId = $order->getStatusIdstatus();
-                $itemsForOrder = ItemsOrder::find(array(
-                                'conditions' => 'Orders_idOrders = ?0',
-                                'bind' => array($orderId)
-                                ));
+                $itemsForOrder = $this->modelsManager->createBuilder()
+                                ->from('ItemsOrder')
+                                ->addFrom('Books')
+                                ->where('ItemsOrder.Books_idBook = Books.idBook')
+                                ->andWhere("ItemsOrder.Orders_idOrders = $orderId")
+                                ->getQuery()
+                                ->execute();
                 $status = Status::findFirstByIdStatus($statusId);
                 $arrayItemsOrder[$orderId] = $itemsForOrder;
                 $arrayStatus[$orderId] = $status->getName();

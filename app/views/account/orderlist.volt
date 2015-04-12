@@ -1,14 +1,15 @@
 {{ stylesheet_link("css/index/orderlist.css") }}
 
 <div id='body-container'>
+    <div id='border'>
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     
-    <table border=1>
-        <tr>
-            <th>N/n</th><th>Date</th><th>Amount</th><th>Status</th>
-        </tr>
-    </table>
+   <div class="row" id="row-first">
+       
+             <div class="col-md-3">N/n</div> <div class="col-md-3">Date</div> <div class="col-md-3">Amount, $</div><div class="col-md-3">Status</div>
+        
+    </div>
 
   
        
@@ -17,11 +18,11 @@
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne">
-                        <table border='1'>
-                            <tr>  
-                                <td>{{ loop.index }} </td><td>{{ order.getDate() }}</td><td>{{ order.getSummary() }}</td><td>{{ status[order.getIdOrders()] }}</td>
-                            </tr>
-                        </table> 
+                       <div class="row">
+                           
+                                <div class="col-md-3">{{ loop.index }} </div><div class="col-md-3">{{ order.getDate() }}</div><div class="col-md-3">{{ order.getSummary() }}</div><div class="col-md-3">{{ status[order.getIdOrders()] }}</div>
+                          
+                        </div> 
                     </a>
                 </h4>
             </div>
@@ -30,13 +31,13 @@
       <div class="panel-body">
             {% for item in itemsOrder[order.getIdOrders()]%}
                 {% if loop.first %}
-                    <table border='1'>
+                    <table class="table table-hover">
                         <tr>
                             <th>N/n</th><th>Book</th><th>Count</th><th>Price</th>
                         </tr>        
                 {% endif %}
                     <tr>
-                        <td>{{ loop.index }}</td><td>{{ item.getBooksIdBook() }}</td><td>{{ item.getCount() }}</td><td>{{ item.getPrice() }}</td>
+                        <td>{{ loop.index }}</td><td>{{ item.books.getName() }}</td><td>{{ item.itemsOrder.getCount() }}</td><td>{{ item.itemsOrder.getPrice() }}</td>
                     </tr>
                 {% endfor %} 
                     </table>
@@ -46,7 +47,7 @@
     
     
     
-    
+      </div>
     </div>
 </div>
 

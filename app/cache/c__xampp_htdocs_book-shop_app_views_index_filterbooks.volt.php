@@ -14,7 +14,7 @@
                             <?php echo $this->tag->linkTo(array('', 'Back')); ?>
                     </div>
                     <div class='filter'>
-                        <p align='center'  class='name-filter'><?php echo $t->_('lan'); ?>: <?php echo $name; ?></p>
+                        <p align='center'  class='name-filter'><?php echo $t->_('language'); ?>: <?php echo $name; ?></p>
                     </div>
                  <?php } ?>
             

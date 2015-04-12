@@ -42,9 +42,10 @@
                            <p class='price'>${{ pageCurrent.getPrice() }} </p>
                        </div>
                        <div class='form-div'>
-                           {{ form('order/add/'~pageCurrent.getIdbook(), 'method': 'post') }}
-                               <span class='glyphicon glyphicon-shopping-cart'>  </span> {{ submit_button('Add to cart', '') }} 
-                           {{ end_form() }}
+                                <p><input type='hidden' value='{{ pageCurrent.getIdbook() }}'> </p>
+                               <span class='glyphicon glyphicon-shopping-cart'>  </span> 
+                               <input type='button' value='Add to cart' class="btn btn-primary" id='add'>
+                           
                        </div>
                      </div>
                        {% if loop.index is divisibleby(3) %}
@@ -91,6 +92,7 @@
 
  
 {{ javascript_include("js/index/index.js") }}
+{{ javascript_include("js/index/addItem.js") }}
 
 
 

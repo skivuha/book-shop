@@ -42,9 +42,10 @@
                            <p class='price'>$<?php echo $pageCurrent->getPrice(); ?> </p>
                        </div>
                        <div class='form-div'>
-                           <?php echo $this->tag->form(array('order/add/' . $pageCurrent->getIdbook(), 'method' => 'post')); ?>
-                               <span class='glyphicon glyphicon-shopping-cart'>  </span> <?php echo $this->tag->submitButton(array('Add to cart', '')); ?> 
-                           <?php echo $this->tag->endForm(); ?>
+                                <p><input type='hidden' value='<?php echo $pageCurrent->getIdbook(); ?>'> </p>
+                               <span class='glyphicon glyphicon-shopping-cart'>  </span> 
+                               <input type='button' value='Add to cart' class="btn btn-primary" id='add'>
+                           
                        </div>
                      </div>
                        <?php if (((($v21001413801loop->index) % (3)) == 0)) { ?>
@@ -91,6 +92,7 @@
 
  
 <?php echo $this->tag->javascriptInclude('js/index/index.js'); ?>
+<?php echo $this->tag->javascriptInclude('js/index/addItem.js'); ?>
 
 
 

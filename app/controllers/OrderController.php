@@ -10,53 +10,59 @@ class OrderController extends ControllerBase
             $this->flashSession->notice("Login firstly pls!");
             return $this->response->redirect('account/login');
         }
-        $filter = new \Phalcon\Filter();
-        $idBook = $filter->sanitize($idBook, "int");
-        $books = Books:: find();
-        $flag = false;
-        foreach ($books as $book) {
-            if ($idBook == $book->getIdBook())
+
+        if ( $this->request->isGet() && $this->request->isAjax())
+        {
+            $filter = new \Phalcon\Filter();
+            $idBook = $filter->sanitize($idBook, "int");
+            $books = Books:: find();
+            $flag = false;
+            foreach ($books as $book) {
+                if ($idBook == $book->getIdBook())
+                {
+                    $price = $book->getPrice();
+                    $flag = true;
+                    break;
+                } else
+                {
+                    continue;
+                }
+            }
+
+            if (false === $flag) {
+                return $this->response->redirect('');
+            }
+
+            $userId = parent::getValue();
+
+            $shopCard = ShoppingCart::findFirst(array(
+                'conditions' => 'Users_idUser = ?0 AND Books_idBook = ?1',
+                'bind' => array($userId,$idBook)
+            ));
+
+
+            if ( is_bool($shopCard) )
             {
-                $price = $book->getPrice();
-                $flag = true;
-                break;
+                $shoppingCart = new Shoppingcart();
+                $shoppingCart->setCount(1);
+                $shoppingCart->setPrice($price);
+                $shoppingCart->setBooksIdBook($idBook);
+                $shoppingCart->setUsersIdUser($userId);
+                $shoppingCart->save();
+
             } else
             {
-                continue;
+                $count = $shopCard->getCount();
+                $shopCard->setCount($count + 1);
+                $count = $shopCard->getCount();
+                $shopCard->SetPrice($price * $count);
+                $shopCard->save();
             }
+
+            $this->response->setJsonContent(array('count' => parent::getCount(), 'amount' => parent::getTotalSum()));
+            return $this->response;
         }
 
-        if (false === $flag) {
-            return $this->response->redirect('');
-        }
-
-        $userId = parent::getValue();
-
-        $shopCard = ShoppingCart::findFirst(array(
-                    'conditions' => 'Users_idUser = ?0 AND Books_idBook = ?1',
-                    'bind' => array($userId,$idBook)
-                    ));
-
-
-        if ( is_bool($shopCard) )
-        {
-            $shoppingCart = new Shoppingcart();
-            $shoppingCart->setCount(1);
-            $shoppingCart->setPrice($price);
-            $shoppingCart->setBooksIdBook($idBook);
-            $shoppingCart->setUsersIdUser($userId);
-            $shoppingCart->save();
-
-        } else
-        {
-            $count = $shopCard->getCount();
-            $shopCard->setCount($count + 1);
-            $count = $shopCard->getCount();
-            $shopCard->SetPrice($price * $count);
-            $shopCard->save();
-        }
-
-        $this->response->redirect('');
     }
 
     public function CartAction()
@@ -248,6 +254,8 @@ class OrderController extends ControllerBase
                 'conditions' => 'Users_idUser = ?0',
                 'bind' => array($userId)
             ));
+
+
 
             foreach ($shopCard as $item)
             {
