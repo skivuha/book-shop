@@ -9,7 +9,7 @@
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
         
-        <!--<base href='http://192.168.0.15/~user3/'>
+      <!--  <base href='http://192.168.0.15/~user3/'>
 	    <script type="text/javascript" src="/~user3/book-shop/js/jquery/jquery-2.1.3.js"></script>        
         <script type="text/javascript" src="/~user3/book-shop/js/bootstrap/bootstrap.js"></script>       
         <link rel="stylesheet" href="/~user3/book-shop/css/bootstrap/bootstrap.css" type="text/css" />     
@@ -46,7 +46,7 @@
                 </div>
                 <div class='cart-link'>
                     <p><?php echo $t->_('welcome'); ?></p>
-                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> My Cart :<a href='./book-shop/order/cart'>(<?php echo $total; ?>) <?php echo $t->_('item'); ?> - $<?php echo $summary; ?> </a></p>
+                    <p><span class='glyphicon glyphicon-shopping-cart'>  </span> <?php echo $t->_('cart'); ?> :<a href='./book-shop/order/cart'>(<?php echo $total; ?>) <?php echo $t->_('item'); ?> - $<?php echo $summary; ?> </a></p>
                  </div>
                  
             </div>
