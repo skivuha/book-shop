@@ -11,18 +11,24 @@ $(document).ready(function() {
             type: "GET",
             success: function(response){
                 var file = JSON.parse((response));
-                if ( file["count"] == null )
+                if ( file["link"] )
                 {
-                    count = 1;
+                      window.location = file["link"];
                 }
                 else
                 {
-                    var count = parseInt(file["count"]) + 1;
-                }
+                    if ( file["count"] == null )
+                    {
+                        count = 1;
+                    }
+                    else
+                    {
+                     var count = parseInt(file["count"]) + 1;
+                    }
 
-                price += parseFloat(file["amount"]);
-                $(".cart a").html('(' + count + ')' + ' item(-s) - $' + price.toFixed(2) );
-
+                    price += parseFloat(file["amount"]);
+                    $(".cart a").html('(' + count + ')' + ' item(-s) - $' + price.toFixed(2) );
+               }
             }
         });
     })
