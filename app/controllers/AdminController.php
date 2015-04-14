@@ -104,7 +104,7 @@ class AdminController extends ControllerBase
                 'bind' => array($idBook)
             ));
 
-            $order = Itemsorder::findFirst(array(
+            $order = ItemsOrder::findFirst(array(
                 'conditions' => 'Books_idBook = ?0',
                 'bind' => array($idBook)
             ));
