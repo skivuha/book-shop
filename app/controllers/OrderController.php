@@ -8,7 +8,9 @@ class OrderController extends ControllerBase
         if (!$this->session->has("user_id"))
         {
             $this->flashSession->notice("Login firstly pls!");
-            return $this->response->redirect('account/login');
+            //return $this->response->redirect('account/login');
+            $this->response->setJsonContent(array('link' => './book-shop/account/login'));
+            return $this->response;
         }
 
         if ( $this->request->isGet() && $this->request->isAjax())
