@@ -99,7 +99,7 @@ class AdminController extends ControllerBase
         $book = Books::findFirstByidBook($idBook);
         if ($book)
         {
-            $shoppingCart = Shoppingcart::findFirst(array(
+            $shoppingCart = ShoppingCart::findFirst(array(
                 'conditions' => 'Books_idBook = ?0',
                 'bind' => array($idBook)
             ));
