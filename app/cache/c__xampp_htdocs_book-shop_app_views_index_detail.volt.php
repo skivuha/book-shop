@@ -2,7 +2,7 @@
 
 <div class='container'>
 <h3 align='center'><?php echo $book->getName(); ?> </h3>
-	<p align='center'><?php echo $this->tag->image(array($imagePath . $book->getIdbook() . '.jpg', 'alt' => 'Picture was removed', 'title' => $book->getName())); ?></p>
+	<p align='center' class='p-img'><?php echo $this->tag->image(array($imagePath . $book->getIdbook() . '.jpg', 'alt' => 'Picture was removed', 'title' => $book->getName())); ?></p>
       <?php foreach ($languages as $language) { ?>
             <p align='center'>Programming language: <i><?php echo $language; ?></i></p>
       <?php } ?>
@@ -19,7 +19,7 @@
         <?php } ?>
       <?php $v39743880331incr++; } ?>
       </p>
-	<h4 align='center'>$<?php echo $book->getPrice(); ?> </h4>
+	<h4 align='center' id='price'>$<?php echo $book->getPrice(); ?> </h4>
 	<p align='justify'><?php echo $book->getDescription(); ?></p>
   <div class='footer'>
   <?php if (empty($secondParam)) { ?>
@@ -35,9 +35,8 @@
    
   <?php } ?>
        
-       <?php echo $this->tag->form(array('order/add/' . $book->getIdbook(), 'method' => 'post')); ?>
-            <?php echo $this->tag->submitButton(array('Add to cart', '')); ?>
-        <?php echo $this->tag->endForm(); ?>
+         <p id='hidden-id'><input type='hidden' value='<?php echo $book->getIdbook(); ?>'> </p>     
+        <input type='button' value='Add to cart' class="btn btn-primary" id='add'>
 </div>
 </div>
 

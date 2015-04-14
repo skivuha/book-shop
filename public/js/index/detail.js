@@ -4,8 +4,26 @@ $(document).ready(function() {
     $('.container').css("width",  widthMainContainer + "px");
 
 
-    $("input[type=submit]").addClass("btn btn-primary");
-    $("input[type=submit]").attr("name", "buy");
+    $("#add").addClass("btn btn-primary");
+    $("#add").attr("name", "buy");
+
+    $("#add").on("click", function() {
+        var id = $("#hidden-id").children().val();
+        var price = $("#price").text();
+        price = parseFloat(price.substr(1));
+
+        $.ajax({
+            url: "./book-shop/order/add/" + id,
+            type: "GET",
+            success: function(response){
+                var file = JSON.parse((response));
+                var count = parseInt(file["count"]) + 1;
+                price += parseFloat(file["amount"]);
+                $(".cart a").html('(' + count + ')' + ' item(-s) - $' + price.toFixed(2) );
+
+            }
+        });
+    })
 
 });
 

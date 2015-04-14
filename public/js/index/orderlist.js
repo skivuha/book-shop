@@ -3,4 +3,6 @@ $(document).ready(function() {
     var widthMainContainer = containerWidth * 0.80;
     $("#body-container").css("width", widthMainContainer + "px");
     $("#border").css("width", widthMainContainer - 50 + "px");
+
+
 })

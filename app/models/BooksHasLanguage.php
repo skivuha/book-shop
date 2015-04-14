@@ -13,7 +13,7 @@ class BooksHasLanguage extends \Phalcon\Mvc\Model
      *
      * @var integer
      */
-    protected $Language_idLanguage;
+    public $Language_idLanguage;
 
     /**
      * Method to set the value of field Books_idBook

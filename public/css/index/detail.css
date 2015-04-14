@@ -7,11 +7,15 @@
 
 }
 
-input[type=submit] {
+#add {
 
     float: right;
 }
 
+.p-img img{
+    width: 260px;
+    height: 341px;
+}
 button {
     float: left;
 }

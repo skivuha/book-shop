@@ -1,0 +1,16 @@
+#body-container{
+    margin: 0 auto;
+    padding: 30px;
+    width: 400px;
+
+}
+
+#name{
+    width: 300px;
+}
+
+.buttons-div{
+    margin: 0 auto;
+    width: 135px;
+    margin-top: 20px;
+}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 09 2015 г., 11:16
+-- Время создания: Апр 14 2015 г., 10:54
 -- Версия сервера: 5.6.21
 -- Версия PHP: 5.6.3
 
@@ -72,14 +72,14 @@ CREATE TABLE IF NOT EXISTS `books` (
   `Name` varchar(250) DEFAULT NULL,
   `Description` mediumtext,
   `Price` float DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `books`
 --
 
 INSERT INTO `books` (`idBook`, `Name`, `Description`, `Price`) VALUES
-(1, 'Learning PHP, MySQL & JavaScript With jQuery, CSS & HTML5', 'Build interactive, data-driven websites with the potent combination of open-source technologies and web standards, even if you only have basic HTML knowledge. With this popular hands-on guide, you''ll tackle dynamic web programming with the help of today''s core technologies: PHP, MySQL, JavaScript, jQuery, CSS, and HTML5.\r\nExplore each technology separately, learn how to use them together, and pick up valuable web programming practices along the way. At the end of the book, you''ll put everything together to build a fully functional social networking site, using XAMPP or any development stack of your choice.', 33.25),
+(1, 'Learning PHP, MySQL & JavaScript With jQuery, CSS & HTML5', 'Build interactive, data-driven websites with the potent combination of open-source technologies and web standards, even if you only have basic HTML knowledge. With this popular hands-on guide, you&#39;ll tackle dynamic web programming with the help of today&#39;s core technologies: PHP, MySQL, JavaScript, jQuery, CSS, and HTML5.\r\nExplore each technology separately, learn how to use them together, and pick up valuable web programming practices along the way. At the end of the book, you&#39;ll put everything together to build a fully functional social networking site, using XAMPP or any development stack of your choice.', 33.25),
 (2, 'Modern PHP New Features and Good Practices', 'PHP is experiencing a renaissance, though it may be difficult to tell with all of the outdated PHP tutorials online. With this practical guide, you’ll learn how PHP has become a full-featured, mature language with object-orientation, namespaces, and a growing collection of reusable component libraries.\r\n\r\nAuthor Josh Lockhart—creator of PHP The Right Way, a popular initiative to encourage PHP best practices—reveals these new language features in action. You’ll learn best practices for application architecture and planning, databases, security, testing, debugging, and deployment. If you have a basic understanding of PHP and want to bolster your skills, this is your book.', 26.44),
 (3, 'PHP and MySQL Web Development (4th Edition)', 'PHP and MySQL are popular open-source technologies that are ideal for quickly developing database-driven Web applications. PHP is a powerful scripting language designed to enable developers to create highly featured Web applications quickly, and MySQL is a fast, reliable database that integrates well with PHP and is suited for dynamic Internet-based applications.\r\n\r\nPHP and MySQL Web Development shows how to use these tools together to produce effective, interactive Web applications. It clearly describes the basics of the PHP language, explains how to set up and work with a MySQL database, and then shows how to use PHP to interact with the database and the server.', 32.34),
 (4, 'Programming PHP', 'This updated edition teaches everything you need to know to create effective web applications with the latest features in PHP 5.x. You’ll start with the big picture and then dive into language syntax, programming techniques, and other details, using examples that illustrate both correct usage and common idioms.\r\n\r\nIf you have a working knowledge of HTML, the authors’ many style tips and practical programming advice will help you become a top-notch PHP programmer.', 29.24),
@@ -100,7 +100,7 @@ INSERT INTO `books` (`idBook`, `Name`, `Description`, `Price`) VALUES
 (19, 'The Ruby Programming Language', 'This book begins with a quick-start tutorial to the language, and then explains the language in detail from the bottom up: from lexical and syntactic structure to datatypes to expressions and statements and on through methods, blocks, lambdas, closures, classes and modules.\r\n\r\nThe book also includes a long and thorough introduction to the rich API of the Ruby platform, demonstrating -- with heavily-commented example code -- Ruby''s facilities for text processing, numeric manipulation, collections, input/output, networking, and concurrency. An entire chapter is devoted to Ruby''s metaprogramming capabilities.', 26.81),
 (20, 'Ruby Cookbook', 'Why spend time on coding problems that others have already solved when you could be making real progress on your Ruby project? This updated cookbook provides more than 350 recipes for solving common problems, on topics ranging from basic data structures, classes, and objects, to web development, distributed programming, and multithreading.\r\n\r\nRevised for Ruby 2.1, each recipe includes a discussion on why and how the solution works. You’ll find recipes suitable for all skill levels, from Ruby newbies to experts who need an occasional reference. With Ruby Cookbook, you’ll not only save time, but keep your brain percolating with new ideas as well.', 40.36),
 (21, 'Computer Science Programming Basics in Ruby', 'If you know basic high-school math, you can quickly learn and apply the core concepts of computer science with this concise, hands-on book. Led by a team of experts, you’ll quickly understand the difference between computer science and computer programming, and you’ll learn how algorithms help you solve computing problems.\r\n\r\nEach chapter builds on material introduced earlier in the book, so you can master one core building block before moving on to the next. You’ll explore fundamental topics such as loops, arrays, objects, and classes, using the easy-to-learn Ruby programming language. Then you’ll put everything together in the last chapter by programming a simple game of tic-tac-toe.', 23.51),
-(22, 'Agile Web Development with Rails 4 (Facets of Ruby)', 'Rails just keeps on changing. Both Rails 3 and 4, as well as Ruby 1.9 and 2.0, bring hundreds of improvements, including new APIs and substantial performance enhancements. The fourth edition of this award-winning classic has been reorganized and refocused so it''s more useful than ever before for developers new to Ruby and Rails.\r\n\r\nRails 4 introduces a number of user-facing changes, and the ebook has been updated to match all the latest changes and new best practices in Rails. This includes full support for Ruby 2.0, controller concerns, Russian Doll caching, strong parameters, Turbolinks, new test and bin directory layouts, and much more.\r\n\r\nRuby on Rails helps you produce high-quality, beautiful-looking web applications quickly. You concentrate on creating the application, and Rails takes care of the details.', 29.74);
+(22, 'Agile Web Development with Rails 4 (Facets of Ruby)', 'Rails just keeps on changing. Both Rails 3 and 4, as well as Ruby 1.9 and 2.0, bring hundreds of improvements, including new APIs and substantial performance enhancements. The fourth edition of this award-winning classic has been reorganized and refocused so it&#39;s more useful than ever before for developers new to Ruby and Rails.\r\n\r\nRails 4 introduces a number of user-facing changes, and the ebook has been updated to match all the latest changes and new best practices in Rails. This includes full support for Ruby 2.0, controller concerns, Russian Doll caching, strong parameters, Turbolinks, new test and bin directory layouts, and much more.\r\n\r\nRuby on Rails helps you produce high-quality, beautiful-looking web applications quickly. You concentrate on creating the application, and Rails takes care of the details.', 29.74);
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,23 @@ CREATE TABLE IF NOT EXISTS `itemsorder` (
   `Price` float DEFAULT NULL,
   `Books_idBook` int(11) NOT NULL,
   `Orders_idOrders` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `itemsorder`
+--
+
+INSERT INTO `itemsorder` (`idItemsOrder`, `Count`, `Price`, `Books_idBook`, `Orders_idOrders`) VALUES
+(1, 1, 26.44, 2, 1),
+(2, 1, 32.34, 3, 1),
+(3, 1, 26.44, 2, 2),
+(4, 1, 33.25, 1, 2),
+(5, 1, 31.28, 5, 2),
+(6, 1, 31.28, 5, 3),
+(7, 1, 32.34, 3, 3),
+(8, 5, 201.8, 20, 3),
+(10, 2, 52.88, 2, 4),
+(11, 1, 32.34, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -252,12 +268,23 @@ INSERT INTO `language` (`idLanguage`, `Name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `orders` (
 `idOrders` int(11) NOT NULL,
-  `Date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `Date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `Summary` float DEFAULT NULL,
   `Users_idUser` int(11) NOT NULL,
   `Status_idStatus` int(11) NOT NULL,
   `Payment_idPayment` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`idOrders`, `Date`, `Summary`, `Users_idUser`, `Status_idStatus`, `Payment_idPayment`) VALUES
+(1, '2015-04-10 15:19:05', 55.84, 16, 4, 1),
+(2, '2015-04-10 15:19:17', 86.42, 16, 3, 5),
+(3, '2015-04-10 15:19:30', 252.15, 16, 5, 4),
+(4, '2015-04-13 00:42:19', 191.5, 16, 2, 1),
+(5, '2015-04-13 14:23:51', 29.43, 16, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -294,7 +321,7 @@ CREATE TABLE IF NOT EXISTS `shoppingcart` (
   `Price` float DEFAULT NULL,
   `Users_idUser` int(11) NOT NULL,
   `Books_idBook` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -337,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`idUser`, `Login`, `Email`, `Password`, `Discount_idDiscount`) VALUES
-(16, 'my name is Dima', 'sad@asd.sd', '$2a$08$Td7wYYvwnnbnH.fiSXwxkOEyIuV/qUSL98OX8e.VvClSwuJUGV/Jq', 2),
+(16, 'my name is Dima', 'sad@asd.sd', '$2a$08$Td7wYYvwnnbnH.fiSXwxkOEyIuV/qUSL98OX8e.VvClSwuJUGV/Jq', 4),
 (17, 'new Name', 'd.shuliakov@gmail.com', '$2a$08$738g2EPHPUwZmON4wShpMeXV4Qf4Tfuo9u8tVpgvMUP53NtrdMZwS', NULL),
 (18, 'New names', 'sds@mail.ru', '$2a$08$BIjk2t8GtpM6uSHcKpIW0eJkz/dfSPfqQa49vbc3VJssGwnzG2IDi', NULL),
 (19, 'dsadsadsadsadsadsdsad', 'sad@asd.ryu', '$2a$08$jKTkFYJa56jeEn5oULDUWe0Lg/n/YNNPEdcJuuTXN/GNADf9l3WYi', NULL),
@@ -432,7 +459,7 @@ MODIFY `idAuthors` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 -- AUTO_INCREMENT для таблицы `books`
 --
 ALTER TABLE `books`
-MODIFY `idBook` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+MODIFY `idBook` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT для таблицы `discount`
 --
@@ -442,7 +469,7 @@ MODIFY `idDiscount` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT для таблицы `itemsorder`
 --
 ALTER TABLE `itemsorder`
-MODIFY `idItemsOrder` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `idItemsOrder` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблицы `language`
 --
@@ -452,7 +479,7 @@ MODIFY `idLanguage` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-MODIFY `idOrders` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+MODIFY `idOrders` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `payment`
 --
@@ -462,7 +489,7 @@ MODIFY `idPayment` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT для таблицы `shoppingcart`
 --
 ALTER TABLE `shoppingcart`
-MODIFY `idShoppingCart` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `idShoppingCart` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `status`
 --
@@ -481,15 +508,15 @@ MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 -- Ограничения внешнего ключа таблицы `books_has_authors`
 --
 ALTER TABLE `books_has_authors`
-ADD CONSTRAINT `fk_Books_has_Authors_Authors1` FOREIGN KEY (`Authors_idAuthors`) REFERENCES `authors` (`idAuthors`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_Books_has_Authors_Books1` FOREIGN KEY (`Books_idBook`) REFERENCES `books` (`idBook`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_Books_has_Authors_Authors1` FOREIGN KEY (`Authors_idAuthors`) REFERENCES `authors` (`idAuthors`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_Books_has_Authors_Books1` FOREIGN KEY (`Books_idBook`) REFERENCES `books` (`idBook`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `books_has_language`
 --
 ALTER TABLE `books_has_language`
-ADD CONSTRAINT `fk_Books_has_Language_Books1` FOREIGN KEY (`Books_idBook`) REFERENCES `books` (`idBook`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_Books_has_Language_Language1` FOREIGN KEY (`Language_idLanguage`) REFERENCES `language` (`idLanguage`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_Books_has_Language_Books1` FOREIGN KEY (`Books_idBook`) REFERENCES `books` (`idBook`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_Books_has_Language_Language1` FOREIGN KEY (`Language_idLanguage`) REFERENCES `language` (`idLanguage`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `itemsorder`

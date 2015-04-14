@@ -21,7 +21,10 @@
 
 }
 
-
+.img-book img{
+    width: 160px;
+    height: 160px;
+}
 #container .glyphicon{
     font-size: 12pt;
 }
@@ -111,4 +114,5 @@
 .glyphicon{
     font-size: 22px;
 }
+
 

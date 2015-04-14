@@ -1,0 +1,25 @@
+#body-container{
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.row{
+    margin-left: 20px;
+    text-align: center;
+}
+
+.row div:nth-child(1){
+    text-align: left;
+}
+
+#row-first{
+    padding: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14pt;
+    font-weight: bold;
+
+}
+
+#border {
+    margin: 0 auto;
+}

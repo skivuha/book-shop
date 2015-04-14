@@ -11,6 +11,10 @@
     border: 2px solid #d9d9d9;
 }
 
+.img-book img{
+    width: 160px;
+    height: 160px;
+}
 .filter-language {
     margin: 0 auto;
     width: 180px;

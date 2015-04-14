@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     })
 
-    $('select').on('change', function (e) {
+    $('.lang-div select').on('change', function (e) {
         var optionSelected = $("option:selected", this);
         var valueSelected = this.value;
         var link = window.location.href;

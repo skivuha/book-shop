@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="/~user3/book-shop/css/bootstrap/bootstrap.css" type="text/css" />     
         <link rel="stylesheet" href="/~user3/book-shop/css/bootstrap/bootstrap-responsive.min.css" type="text/css" />
         <link rel="stylesheet" href="/~user3/book-shop/css/bootstrap/bootstrap-theme.css" type="text/css" />
-        <script type="text/javascript" src="/~user3/book-shop/js/index/index.js"></script>-->        
+        <script type="text/javascript" src="/~user3/book-shop/js/index/index.js"></script>
+        <script type="text/javascript" src="/~user3/book-shop/js/jquery/jquery.validate.min.js"></script>-->              
+     
         
        <base href='http://localhost/'>
 	    <script type="text/javascript" src="/book-shop/js/jquery/jquery-2.1.3.js"></script>        
@@ -24,13 +26,14 @@
         <link rel="stylesheet" href="book-shop/css/bootstrap/bootstrap-responsive.min.css" type="text/css" />
         <link rel="stylesheet" href="book-shop/css/bootstrap/bootstrap-theme.css" type="text/css" />
         <script type="text/javascript" src="book-shop/js/index/index.js"></script>
-        
+        <script type="text/javascript" src="book-shop/js/jquery/jquery.validate.min.js"></script>
+      
 		<title>Book-shop</title>
 	</head>
-	<body>
+	<body >
     <?php echo $this->tag->stylesheetLink('css/index/header.css'); ?>
     
-    <nav class="navbar navbar-default navbar-fixed-top">
+         <nav class="navbar navbar-default navbar-fixed-top">
 <div id='main-header-container' >
     <div class="img-container" class='cp-clear'>
         <div class='img-books'>
@@ -55,7 +58,12 @@
          </div>     
          
     </div>
-    <div class='link-container'>
+    <div id='link-container' class='cp-clear'>
+        <div class='ul-l'>
+              <ul>
+               <li> <a href='./book-shop/admin/index'>Admin panel</a></li>
+              </ul>
+        </div>
         <div class='ul-s'>
             <ul>
                  <span class='glyphicon glyphicon-home'><span><li><a href='./book-shop/'> <?php echo $t->_('home'); ?> </a></li>

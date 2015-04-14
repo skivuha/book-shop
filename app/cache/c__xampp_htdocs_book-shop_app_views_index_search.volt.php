@@ -44,7 +44,7 @@
                        <div class='form-div'>
                                 <p><input type='hidden' value='<?php echo $pageCurrent->getIdbook(); ?>'> </p>
                                <span class='glyphicon glyphicon-shopping-cart'>  </span> 
-                               <input type='button' value='Add to cart' class="btn btn-primary" id='add'>
+                               <input type='button' value='Add to cart' class="btn btn-primary">
                            
                        </div>
                      </div>

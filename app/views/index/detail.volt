@@ -2,7 +2,7 @@
 
 <div class='container'>
 <h3 align='center'>{{ book.getName() }} </h3>
-	<p align='center'>{{ image(imagePath~ book.getIdbook()~".jpg", "alt": "Picture was removed", "title": book.getName()) }}</p>
+	<p align='center' class='p-img'>{{ image(imagePath~ book.getIdbook()~".jpg", "alt": "Picture was removed", "title": book.getName()) }}</p>
       {% for language in languages %}
             <p align='center'>Programming language: <i>{{ language }}</i></p>
       {% endfor %}
@@ -19,7 +19,7 @@
         {% endif %}
       {% endfor %}
       </p>
-	<h4 align='center'>${{  book.getPrice() }} </h4>
+	<h4 align='center' id='price'>${{  book.getPrice() }} </h4>
 	<p align='justify'>{{  book.getDescription() }}</p>
   <div class='footer'>
   {% if secondParam is empty%}
@@ -35,9 +35,8 @@
    
   {% endif %}
        
-       {{ form('order/add/'~book.getIdbook(), 'method': 'post') }}
-            {{ submit_button('Add to cart', '') }}
-        {{ end_form() }}
+         <p id='hidden-id'><input type='hidden' value='{{ book.getIdbook() }}'> </p>     
+        <input type='button' value='Add to cart' class="btn btn-primary" id='add'>
 </div>
 </div>
 
